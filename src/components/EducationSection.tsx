@@ -3,13 +3,13 @@ import SectionBlock from './SectionBlock';
 const education = [
   {
     degree:
-      'Master of Computer Applications (MCA)',
+      'Master of Computer Application (MCA)',
     school: 'Kristu Jayanti University, Bangalore',
     year: '2025 – 2027(Pursuing)',
   },
   {
     degree:
-      'Bachelor of Computer Applications (BCA)',
+      'Bachelor of Computer Application (BCA)',
     school: 'Graphic Era University',
     year: '2022 – 2025',
   },

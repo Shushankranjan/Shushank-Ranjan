@@ -24,7 +24,7 @@ const AboutSection = () => (
           Beyond coding, I believe in the power of knowledge sharing and am
           always eager to connect with fellow tech enthusiasts to exchange ideas
           and collaborate on exciting projects. Let's build something amazing
-          together! 🚀
+          together! 
         </p>
       </div>
     </div>
