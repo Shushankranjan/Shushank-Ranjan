@@ -1,46 +1,41 @@
 trigger:
-- main
+  - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 variables:
-  imageRepository: portfolio
-  acrName: shushankacr2026
-  imageTag: $(Build.BuildId)
+  acrName: 'shushankacr2026'
+  imageRepository: 'portfolio'
 
 steps:
+  - script: |
+      docker build -t $(imageRepository):$(Build.BuildId) .
+    displayName: 'Build Docker Image'
 
-- task: Docker@2
-  displayName: Build Docker Image
-  inputs:
-    command: build
-    Dockerfile: Dockerfile
-    repository: $(imageRepository)
+  - task: AzureCLI@2
+    displayName: 'Push Image to ACR'
+    inputs:
+      azureSubscription: 'Azure-ServiceConnection'
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        az acr login --name $(acrName)
 
-- task: AzureCLI@2
-  displayName: Login to ACR and Push Image
-  inputs:
-    azureSubscription: Azure-ServiceConnection
-    scriptType: bash
-    scriptLocation: inlineScript
-    inlineScript: |
-      az acr login --name $(acrName)
+        docker tag $(imageRepository):$(Build.BuildId) \
+          $(acrName).azurecr.io/$(imageRepository):$(Build.BuildId)
 
-      docker tag $(imageRepository):latest \
-        $(acrName).azurecr.io/$(imageRepository):$(imageTag)
+        docker push \
+          $(acrName).azurecr.io/$(imageRepository):$(Build.BuildId)
 
-      docker push \
-        $(acrName).azurecr.io/$(imageRepository):$(imageTag)
-
-- task: AzureCLI@2
-  displayName: Update App Service
-  inputs:
-    azureSubscription: Azure-ServiceConnection
-    scriptType: bash
-    scriptLocation: inlineScript
-    inlineScript: |
-      az webapp config container set \
-        --name shushank-portfolio-2026 \
-        --resource-group portfolio-rg \
-        --container-image-name $(acrName).azurecr.io/$(imageRepository):$(imageTag)
+  - task: AzureCLI@2
+    displayName: 'Deploy to App Service'
+    inputs:
+      azureSubscription: 'Azure-ServiceConnection'
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        az webapp config container set \
+          --name shushank-portfolio-2026 \
+          --resource-group portfolio-rg \
+          --container-image-name $(acrName).azurecr.io/$(imageRepository):$(Build.BuildId)
