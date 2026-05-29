@@ -1,0 +1,46 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  imageRepository: portfolio
+  acrName: shushankacr2026
+  imageTag: $(Build.BuildId)
+
+steps:
+
+- task: Docker@2
+  displayName: Build Docker Image
+  inputs:
+    command: build
+    Dockerfile: Dockerfile
+    repository: $(imageRepository)
+
+- task: AzureCLI@2
+  displayName: Login to ACR and Push Image
+  inputs:
+    azureSubscription: Azure-ServiceConnection
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      az acr login --name $(acrName)
+
+      docker tag $(imageRepository):latest \
+        $(acrName).azurecr.io/$(imageRepository):$(imageTag)
+
+      docker push \
+        $(acrName).azurecr.io/$(imageRepository):$(imageTag)
+
+- task: AzureCLI@2
+  displayName: Update App Service
+  inputs:
+    azureSubscription: Azure-ServiceConnection
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      az webapp config container set \
+        --name shushank-portfolio-2026 \
+        --resource-group portfolio-rg \
+        --container-image-name $(acrName).azurecr.io/$(imageRepository):$(imageTag)
