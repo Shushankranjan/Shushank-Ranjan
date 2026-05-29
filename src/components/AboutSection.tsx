@@ -8,23 +8,20 @@ const AboutSection = () => (
       <AnimatedAvatar />
       <div className="flex-1">
         <p className="body-text max-w-2xl">
-          I'm a passionate DevOps Engineer with a knack for crafting seamless
-          digital experiences. With a background in both design and development, I
-          thrive at the intersection of creativity and technology, building
-          solutions that are not only functional but also visually engaging.
+          DevOps Engineer who automates things so I don't have to do them twice —
+          or ever, ideally. I speak fluent YAML, argue with Terraform state files,
+          and have a complicated relationship with Kubernetes.
         </p>
         <p className="body-text max-w-2xl mt-6">
-          My journey in tech has been fueled by a relentless curiosity and a desire to push the boundaries of what's possible. I specialize in
-          leveraging modern tools and frameworks to create intuitive, user-centric
-          applications that solve real-world problems. Whether it's optimizing
-          workflows or designing elegant interfaces, I bring a unique blend of
-          technical expertise and artistic vision to every project I undertake.
+          I'm somewhere between "it works on my machine" and "it works in
+  production" — closing that gap is basically my whole thing. Always down
+  to talk cloud infra, CI/CD pipelines, or why my last deployment
+  definitely didn't cause that outage.
         </p>
         <p className="body-text max-w-2xl mt-6">
-          Beyond coding, I believe in the power of knowledge sharing and am
-          always eager to connect with fellow tech enthusiasts to exchange ideas
-          and collaborate on exciting projects. Let's build something amazing
-          together! 
+          If you've got a broken pipeline, a runaway AWS bill, or just want to
+  geek out over DevSecOps — let's connect. I don't bite. My scripts
+  might, though. 
         </p>
       </div>
     </div>
