@@ -8,6 +8,13 @@ const experiences = [
     description:
       'Conducted comprehensive security assessments, including vulnerability scanning and penetration testing, to identify and mitigate potential threats. Collaborated with the IT team to implement security measures and enhance overall cybersecurity posture.',
   },
+  {
+    role: 'DevOps Intern',
+    company: 'AlphaCode',
+    period: '[01JUNE 2026 – 01JULY 2026]',
+    description:
+      'Assisted in the development and maintenance of CI/CD pipelines, automating deployment processes to improve efficiency. Worked with containerization technologies like Docker and orchestration tools such as Kubernetes to streamline application deployment and scaling.',
+  },
 ];
 
 const ExperienceSection = () => (
