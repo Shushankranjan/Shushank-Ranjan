@@ -11,7 +11,7 @@ const experiences = [
   {
     role: 'DevOps Intern',
     company: 'AlphaCode',
-    period: '[01JUNE 2026 – 01JULY 2026]',
+    period: '[01MAY 2026 – 01JULY 2026]',
     description:
       'Assisted in the development and maintenance of CI/CD pipelines, automating deployment processes to improve efficiency. Worked with containerization technologies like Docker and orchestration tools such as Kubernetes to streamline application deployment and scaling.',
   },

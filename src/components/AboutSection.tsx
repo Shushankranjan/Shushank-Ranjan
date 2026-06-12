@@ -20,7 +20,7 @@ const AboutSection = () => (
         </p>
         <p className="body-text max-w-2xl mt-6">
           If you've got a broken pipeline, a runaway AWS bill, or just want to
-  geek out over DevSecOps — let's connect. I don't bite. My scripts
+  geek out over DevSecOps - let's connect. I don't bite. My scripts
   might, though. 
         </p>
       </div>
