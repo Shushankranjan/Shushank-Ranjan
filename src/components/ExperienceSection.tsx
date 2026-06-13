@@ -9,11 +9,11 @@ const experiences = [
       'Conducted comprehensive security assessments, including vulnerability scanning and penetration testing, to identify and mitigate potential threats. Collaborated with the IT team to implement security measures and enhance overall cybersecurity posture.',
   },
   {
-    role: 'DevOps Intern',
-    company: 'AlphaCode',
-    period: '[01MAY 2026 – 01JULY 2026]',
+    role: 'Cloud Computing Intern',
+    company: 'Codec Technologies',
+    period: '[25MAY 2026 – 25JULY 2026]',
     description:
-      'Assisted in the development and maintenance of CI/CD pipelines, automating deployment processes to improve efficiency. Worked with containerization technologies like Docker and orchestration tools such as Kubernetes to streamline application deployment and scaling.',
+      'Cloud Cost Optimization Dashboard: Built an AWS Cost Explorer and Grafana dashboard to visualize spending trends, implementing custom algorithms that identified idle resources and significantly reduced cloud waste.'
   },
 ];
 

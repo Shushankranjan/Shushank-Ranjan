@@ -6,8 +6,24 @@ import { playHover, playClick } from '@/hooks/useSoundEffects';
 
 const projects = [
   {
-    title: 'MAIL-MIND-AI',
+    title: 'Cloud Cost Optimizer',
     isNew: true,
+    description:
+      'A cloud cost optimization dashboard that integrates with the AWS Cost Explorer API to aggregate usage and cost data, visualizing metrics in Grafana with automated budget alerts and tailored optimization recommendations.',
+    tags: [
+      'AWS Cost Explorer',
+      'Grafana',
+      'AWS Budgets',
+      'Docker',
+      'Kubernetes',
+      'Node.js',
+      'TypeScript',
+    ],
+    githubUrl: 'https://github.com/Shushankranjan/cloud-cost-optimizer',
+  },
+  {
+    title: 'MAIL-MIND-AI',
+    isNew: false,
     description:
       'A professional-grade, AI-powered email assistant that transforms your inbox into a dynamic command center by leveraging Gemma 2 27B and the Gmail API.',
     tags: [
